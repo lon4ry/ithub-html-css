@@ -1,0 +1,146 @@
+/* Задание 6. 3D-трансформации: perspective, preserve-3d, rotateX/Y, translateZ. */
+
+.demo-intro { padding-block: clamp(2.5rem, 6vw, 4rem) 1rem; }
+.demo-intro h1 { font-size: clamp(2rem, 5vw, 3rem); }
+.demo-lead { max-width: 64ch; color: var(--ink-soft); }
+.demo-lead code {
+  padding: 0.1em 0.35em;
+  border-radius: 5px;
+  background: #efe5d6;
+  color: var(--brand-dark);
+  font-size: 0.9em;
+}
+
+.demo-section { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
+.demo-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+.demo-grid { display: grid; gap: 1.5rem; align-items: start; }
+
+/* Сцена и куб */
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: radial-gradient(420px 260px at 50% 45%, rgb(200 135 58 / 0.22), transparent 70%);
+  perspective: 900px;
+}
+.cube {
+  --size: 150px;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  transform-style: preserve-3d;
+  animation: cube-spin 16s linear infinite;
+}
+.cube__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(200 135 58 / 0.7);
+  background: rgb(43 29 22 / 0.92);
+  color: #fffaf3;
+  font: 700 0.95rem var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cube__face--front { transform: rotateY(0deg) translateZ(calc(var(--size) / 2)); }
+.cube__face--right { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); }
+.cube__face--back { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); }
+.cube__face--left { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); }
+.cube__face--top { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
+
+@keyframes cube-spin {
+  from { transform: rotateX(-18deg) rotateY(0deg); }
+  to { transform: rotateX(-18deg) rotateY(360deg); }
+}
+
+/* Пауза вращения: radio + :has() */
+body:has(#spin-off:checked) .cube { animation-play-state: paused; }
+
+.demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  border: 0;
+}
+.demo-controls legend { color: var(--ink-soft); font-size: 0.85rem; }
+.demo-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.demo-controls label:has(input:checked) {
+  border-color: var(--brand);
+  background: #f3e2d2;
+  color: var(--brand-dark);
+}
+
+/* Флип-карточка */
+.flip {
+  perspective: 1000px;
+  border-radius: var(--radius);
+  outline-offset: 6px;
+}
+.flip__inner {
+  position: relative;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.flip:hover .flip__inner,
+.flip:focus .flip__inner { transform: rotateY(180deg); }
+
+.flip__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.3rem;
+  padding: 1.4rem;
+  border-radius: var(--radius);
+  text-align: center;
+  backface-visibility: hidden;
+}
+.flip__face--front { background: var(--dark); color: #f8efe2; }
+.flip__face--back { background: var(--brand); color: #fffaf3; transform: rotateY(180deg); }
+.flip__face h3 { margin: 0; }
+.flip__face p { margin: 0; font-size: 0.9rem; opacity: 0.85; }
+.flip__hint { margin: 0; color: var(--ink-soft); font-size: 0.85rem; }
+
+/* Наклон карточек */
+.tilt-group { display: grid; gap: 1rem; }
+.tilt { perspective: 700px; }
+.tilt__card {
+  height: 100%;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transform-style: preserve-3d;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tilt:hover .tilt__card,
+.tilt:focus-within .tilt__card {
+  box-shadow: var(--shadow);
+  transform: rotateX(8deg) rotateY(-10deg) translateY(-4px);
+}
+.tilt__card h3 { transform: translateZ(30px); }
+.tilt__card p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; transform: translateZ(18px); }
+
+@media (min-width: 700px) {
+  .tilt-group { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .demo-grid { grid-template-columns: 1fr 1fr; }
+}

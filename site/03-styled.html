@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зерно — кофейня и обжарочная</title>
+  <meta name="description" content="Кофейня-обжарочная «Зерно»: меню, обжарка, отзывы, бронирование столика.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styled.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>Зерно</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#menu">Меню</a></li>
+          <li><a href="#roasting">Обжарка</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#visit">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--small" href="#visit">Бронь</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Кофейня и обжарочная</p>
+          <h1 id="hero-title">Свежая обжарка каждую неделю</h1>
+          <p class="hero__lead">Обжариваем зерно по вторникам и варим из него кофе здесь же, в зале на 30 мест.</p>
+          <p class="hero__actions">
+            <a class="btn" href="#visit">Забронировать столик</a>
+            <a class="btn btn--ghost" href="#menu">Смотреть меню</a>
+          </p>
+        </div>
+        <figure class="hero__art">
+          <img src="assets/cup.svg" alt="Чашка горячего кофе" width="320" height="320">
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div>
+          <h2 id="about-title" class="section__title">О нас</h2>
+          <p>Мы открылись в 2021 году как небольшая обжарочная. Сегодня у нас зал на 30 мест, своя обжарка и школа бариста. Зерно покупаем напрямую у ферм Эфиопии, Колумбии и Бразилии.</p>
+        </div>
+        <dl class="stats">
+          <div class="stats__item"><dt>Сортов в наличии</dt><dd>12</dd></div>
+          <div class="stats__item"><dt>Обжарка</dt><dd>по вторникам</dd></div>
+          <div class="stats__item"><dt>Мест в зале</dt><dd>30</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 id="menu-title" class="section__title">Меню</h2>
+        <ul class="cards">
+          <li class="card" data-type="coffee">
+            <article>
+              <h3 class="card__title">Эспрессо</h3>
+              <p>Плотный, с нотами шоколада. 30 мл.</p>
+              <p class="card__price"><data value="150">150 ₽</data></p>
+            </article>
+          </li>
+          <li class="card" data-type="coffee">
+            <article>
+              <h3 class="card__title">Капучино</h3>
+              <p>Эспрессо и молоко с плотной пеной. 250 мл.</p>
+              <p class="card__price"><data value="220">220 ₽</data></p>
+            </article>
+          </li>
+          <li class="card card--hit" data-type="coffee">
+            <article>
+              <h3 class="card__title">Раф лавандовый</h3>
+              <p>Сливки, ваниль, лавандовый сироп. 300 мл.</p>
+              <p class="card__price"><data value="290">290 ₽</data></p>
+            </article>
+          </li>
+          <li class="card" data-type="coffee">
+            <article>
+              <h3 class="card__title">Фильтр-кофе</h3>
+              <p>Эфиопия Иргачеффе, светлая обжарка. 300 мл.</p>
+              <p class="card__price"><data value="240">240 ₽</data></p>
+            </article>
+          </li>
+          <li class="card" data-type="tea">
+            <article>
+              <h3 class="card__title">Чай улун</h3>
+              <p>Молочный улун, заваривается при вас. 400 мл.</p>
+              <p class="card__price"><data value="200">200 ₽</data></p>
+            </article>
+          </li>
+          <li class="card" data-type="dessert">
+            <article>
+              <h3 class="card__title">Чизкейк</h3>
+              <p>Классический нью-йорк, собственная выпечка.</p>
+              <p class="card__price"><data value="260">260 ₽</data></p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="roasting" class="section roasting" aria-labelledby="roasting-title">
+      <div class="container">
+        <h2 id="roasting-title" class="section__title">Как мы обжариваем</h2>
+        <ol class="steps">
+          <li><strong>Отбор.</strong> Пробуем образцы зелёного зерна и выбираем лоты.</li>
+          <li><strong>Профиль.</strong> Подбираем температуру и время под каждый сорт.</li>
+          <li><strong>Обжарка.</strong> Жарим партиями по 5 кг на барабанном ростере.</li>
+          <li><strong>Отдых.</strong> Зерно отдыхает 5 дней, после этого идёт в работу.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="reviews" class="section reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title" class="section__title">Отзывы гостей</h2>
+        <div class="reviews__list">
+          <article class="review">
+            <blockquote><p>Лучший фильтр-кофе в районе, бариста всегда подскажет зерно.</p></blockquote>
+            <footer>Анна, <time datetime="2026-09-14">14 сентября 2026</time></footer>
+          </article>
+          <article class="review">
+            <blockquote><p>Хожу работать с ноутбуком: тихо, розетки у каждого стола.</p></blockquote>
+            <footer>Илья, <time datetime="2026-10-02">2 октября 2026</time></footer>
+          </article>
+          <article class="review">
+            <blockquote><p>Купила пачку колумбии домой — сварила в турке, получилось не хуже, чем в зале.</p></blockquote>
+            <footer>Мария, <time datetime="2026-10-20">20 октября 2026</time></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit" class="section visit" aria-labelledby="visit-title">
+      <div class="container visit__inner">
+        <div class="visit__info">
+          <h2 id="visit-title" class="section__title">Как нас найти</h2>
+          <address>
+            ул. Обжарочная, 7<br>
+            <a href="tel:+79000000000">+7&nbsp;900&nbsp;000&#8209;00&#8209;00</a><br>
+            <a href="mailto:hello@zerno.example">hello@zerno.example</a>
+          </address>
+          <table class="hours">
+            <caption>Часы работы</caption>
+            <thead><tr><th scope="col">Дни</th><th scope="col">Время</th></tr></thead>
+            <tbody>
+              <tr><td>Пн–Пт</td><td>8:00–22:00</td></tr>
+              <tr><td>Сб–Вс</td><td>10:00–23:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <form class="form" action="#" method="post">
+          <fieldset>
+            <legend>Бронирование столика</legend>
+            <label class="field"><span>Имя</span><input name="name" type="text" required autocomplete="name" placeholder="Анна"></label>
+            <label class="field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" pattern="[0-9+ \(\)\-]{10,}"></label>
+            <label class="field"><span>Дата</span><input name="date" type="date" required></label>
+            <label class="field"><span>Гостей</span><input name="guests" type="number" min="1" max="8" value="2"></label>
+            <button class="btn" type="submit">Забронировать</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><small>© 2026 Кофейня «Зерно». Учебный проект.</small></p>
+      <nav aria-label="Этапы работы">
+        <ul class="site-footer__links">
+          <li><a href="02-semantic.html">Каркас</a></li>
+          <li><a href="03-styled.html">Стили</a></li>
+          <li><a href="04-menu.html">Grid</a></li>
+          <li><a href="05-responsive.html">Адаптив</a></li>
+          <li><a href="06-3d.html">3D</a></li>
+          <li><a href="index.html">Итог</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

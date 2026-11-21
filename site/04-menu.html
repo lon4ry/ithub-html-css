@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зерно в пачках — каталог кофейни «Зерно»</title>
+  <meta name="description" content="Каталог зерна кофейни «Зерно»: Эфиопия, Колумбия, Бразилия и другие лоты. Светлая, средняя и тёмная обжарка.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>Зерно</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="index.html#menu">Меню</a></li>
+          <li><a href="04-menu.html" aria-current="page">Каталог</a></li>
+          <li><a href="05-responsive.html">О нас</a></li>
+          <li><a href="index.html#faq">Вопросы</a></li>
+          <li><a href="index.html#visit">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--small" href="index.html#reserve">Бронь</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="catalog-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Каталог зерна</span></li>
+          </ol>
+        </nav>
+        <h1>Зерно в пачках</h1>
+        <p>Обжариваем по вторникам, фасуем по 250 г. Любой лот можно смолоть под ваш способ заваривания — укажите это в комментарии к заказу.</p>
+      </div>
+    </section>
+
+    <div class="container catalog">
+      <!-- Grid-колонка фильтров; на узких экранах перестраивается в строку -->
+      <aside class="filters" aria-labelledby="filters-title">
+        <h2 id="filters-title">Фильтры</h2>
+        <ul>
+          <li><button class="chip" type="button" aria-pressed="true">Все <span>8</span></button></li>
+          <li><button class="chip" type="button" aria-pressed="false">Светлая <span>3</span></button></li>
+          <li><button class="chip" type="button" aria-pressed="false">Средняя <span>3</span></button></li>
+          <li><button class="chip" type="button" aria-pressed="false">Тёмная <span>2</span></button></li>
+          <li><button class="chip" type="button" aria-pressed="false">Для эспрессо <span>5</span></button></li>
+          <li><button class="chip" type="button" aria-pressed="false">Для фильтра <span>6</span></button></li>
+        </ul>
+        <p class="hint">Фильтры в этой работе оформлены как разметка каталога. Логика фильтрации — тема следующих занятий.</p>
+      </aside>
+
+      <section aria-labelledby="grid-title">
+        <div class="toolbar">
+          <h2 id="grid-title">Все лоты <small>· 8 позиций</small></h2>
+          <label class="sort">
+            Сортировка
+            <select name="sort">
+              <option value="popular">по популярности</option>
+              <option value="price-asc">сначала дешевле</option>
+              <option value="price-desc">сначала дороже</option>
+              <option value="new">сначала новые</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Grid: сетка товаров; внутри карточки — Flexbox-колонка -->
+        <ul class="product-grid">
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Эфиопия</span><span>светлая</span></p>
+                <h3>Иргачеффе</h3>
+                <p class="product__note">Жасмин, персик, чёрный чай.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 250 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Колумбия</span><span>средняя</span></p>
+                <h3>Уила</h3>
+                <p class="product__note">Карамель, красное яблоко, орех.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 100 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Бразилия</span><span>средняя</span></p>
+                <h3>Серрадо</h3>
+                <p class="product__note">Молочный шоколад, фундук.</p>
+                <div class="product__bottom">
+                  <p class="product__price">940 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Кения</span><span>светлая</span></p>
+                <h3>Ньери</h3>
+                <p class="product__note">Чёрная смородина, грейпфрут.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 380 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Гватемала</span><span>средняя</span></p>
+                <h3>Антигуа</h3>
+                <p class="product__note">Какао, апельсин.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 190 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Эфиопия</span><span>светлая</span></p>
+                <h3>Гуджи</h3>
+                <p class="product__note">Клубника, лаванда.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 320 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Бразилия</span><span>тёмная</span></p>
+                <h3>Суль-де-Минас</h3>
+                <p class="product__note">Горький шоколад, табак.</p>
+                <div class="product__bottom">
+                  <p class="product__price">890 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <li class="product">
+            <article class="product__card">
+              <figure class="product__media">
+                <img src="assets/beans.svg" alt="" width="84" height="84">
+              </figure>
+              <div class="product__body">
+                <p class="product__meta"><span>Индонезия</span><span>тёмная</span></p>
+                <h3>Суматра</h3>
+                <p class="product__note">Кедр, специи.</p>
+                <div class="product__bottom">
+                  <p class="product__price">1 050 ₽ <small>/ 250 г</small></p>
+                  <button class="btn btn--small" type="button">В корзину</button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><small>© 2026 Кофейня «Зерно». Учебный проект.</small></p>
+      <nav aria-label="Этапы работы">
+        <ul class="site-footer__links">
+          <li><a href="02-semantic.html">Каркас</a></li>
+          <li><a href="03-styled.html">Стили</a></li>
+          <li><a href="04-menu.html" aria-current="page">Grid</a></li>
+          <li><a href="05-responsive.html">Адаптив</a></li>
+          <li><a href="06-3d.html">3D</a></li>
+          <li><a href="index.html">Итог</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

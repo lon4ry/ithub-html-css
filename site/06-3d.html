@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D-трансформации — кофейня «Зерно»</title>
+  <meta name="description" content="Демонстрация CSS 3D-трансформаций: perspective, preserve-3d, вращающийся куб, флип-карточка и наклон при наведении.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/demo3d.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>Зерно</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="03-styled.html">Стили</a></li>
+          <li><a href="04-menu.html">Каталог</a></li>
+          <li><a href="05-responsive.html">Адаптив</a></li>
+          <li><a href="06-3d.html" aria-current="page">3D</a></li>
+          <li><a href="index.html">Итог</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="demo-intro container">
+      <p class="eyebrow">CSS-трансформации</p>
+      <h1>3D без JavaScript</h1>
+      <p class="demo-lead">Три приёма на чистых CSS-трансформациях: вращающийся куб на <code>perspective</code> и <code>preserve-3d</code>, карточка-флип на <code>rotateY(180deg)</code> и наклон блока через <code>rotateX</code>/<code>rotateY</code> при наведении.</p>
+    </section>
+
+    <section class="demo-section container" aria-labelledby="cube-title">
+      <h2 id="cube-title">Куб</h2>
+      <p class="demo-lead">Шесть граней позиционированы в 3D через <code>translateZ(calc(var(--size) / 2))</code> и повёрнуты по осям X и Y. Сцена задаёт глубину через <code>perspective: 900px</code>.</p>
+
+      <div class="stage">
+        <div class="cube" role="img" aria-label="Вращающийся 3D-куб с гранями «Зерно»">
+          <div class="cube__face cube__face--front">Зерно</div>
+          <div class="cube__face cube__face--right">обжарка</div>
+          <div class="cube__face cube__face--back">2026</div>
+          <div class="cube__face cube__face--left">кофе</div>
+          <div class="cube__face cube__face--top">свет</div>
+          <div class="cube__face cube__face--bottom">средне</div>
+        </div>
+      </div>
+
+      <!-- Управление вращением: radio + :has() в CSS -->
+      <fieldset class="demo-controls">
+        <legend>Вращение куба</legend>
+        <label><input type="radio" name="spin" id="spin-on" checked> вращать</label>
+        <label><input type="radio" name="spin" id="spin-off"> пауза</label>
+      </fieldset>
+    </section>
+
+    <section class="demo-section container" aria-labelledby="flip-title">
+      <h2 id="flip-title">Карточка-флип</h2>
+      <p class="demo-lead">Две стороны лежат друг на друге, у каждой <code>backface-visibility: hidden</code>. При наведении или фокусе контейнер поворачивается на 180° вокруг вертикальной оси.</p>
+
+      <div class="demo-grid">
+        <div class="flip" tabindex="0" role="group" aria-label="Карточка сорта: наведите или сфокусируйте, чтобы увидеть оборот">
+          <div class="flip__inner">
+            <div class="flip__face flip__face--front">
+              <h3>Эфиопия Иргачеффе</h3>
+              <p>Светлая обжарка · 1 250 ₽</p>
+            </div>
+            <div class="flip__face flip__face--back">
+              <h3>Жасмин и персик</h3>
+              <p>Фильтр, V60 или аэропресс. 250 г, помол по запросу.</p>
+            </div>
+          </div>
+        </div>
+        <p class="flip__hint">Наведите курсор или нажмите Tab, чтобы перевернуть карточку.</p>
+      </div>
+    </section>
+
+    <section class="demo-section container" aria-labelledby="tilt-title">
+      <h2 id="tilt-title">Наклон при наведении</h2>
+      <p class="demo-lead">Карточка поворачивается по двум осям и приподнимается; содержимое вынесено вперёд через <code>translateZ</code>.</p>
+
+      <div class="tilt-group">
+        <div class="tilt">
+          <article class="tilt__card">
+            <h3>Эспрессо</h3>
+            <p>30 мл, плотное тело, шоколад.</p>
+          </article>
+        </div>
+        <div class="tilt">
+          <article class="tilt__card">
+            <h3>Фильтр</h3>
+            <p>300 мл, светлая обжарка, ягоды.</p>
+          </article>
+        </div>
+        <div class="tilt">
+          <article class="tilt__card">
+            <h3>Раф</h3>
+            <p>300 мл, сливки и лаванда.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><small>© 2026 Кофейня «Зерно». Учебный проект.</small></p>
+      <nav aria-label="Этапы работы">
+        <ul class="site-footer__links">
+          <li><a href="02-semantic.html">Каркас</a></li>
+          <li><a href="03-styled.html">Стили</a></li>
+          <li><a href="04-menu.html">Grid</a></li>
+          <li><a href="05-responsive.html">Адаптив</a></li>
+          <li><a href="06-3d.html" aria-current="page">3D</a></li>
+          <li><a href="index.html">Итог</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

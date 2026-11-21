@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зерно — адаптивная главная</title>
+  <meta name="description" content="Адаптивная главная страница кофейни «Зерно»: mobile-first вёрстка и проверка на 375, 768 и 1440 px.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="" width="40" height="40">
+        <span>Зерно</span>
+      </a>
+
+      <!-- Мобильное меню: нативный details, работает без JavaScript -->
+      <details class="mobile-menu">
+        <summary>Меню</summary>
+        <nav aria-label="Мобильная навигация">
+          <ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#week">Меню недели</a></li>
+            <li><a href="#place">Контакты</a></li>
+            <li><a href="04-menu.html">Каталог</a></li>
+            <li><a href="06-3d.html">3D-демо</a></li>
+          </ul>
+        </nav>
+      </details>
+
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#week">Меню недели</a></li>
+          <li><a href="04-menu.html">Каталог</a></li>
+          <li><a href="#place">Контакты</a></li>
+          <li><a href="06-3d.html">3D</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="resp-hero">
+      <div class="container resp-hero__inner">
+        <div>
+          <p class="eyebrow">Кофейня и обжарочная</p>
+          <h1>Кофе, который остаётся рядом</h1>
+          <p>Обжариваем зерно по вторникам, варим в зале и учим готовить дома. Страница собрана mobile-first: от 375 px до широких мониторов.</p>
+          <p class="resp-hero__actions">
+            <a class="btn" href="04-menu.html">Выбрать зерно</a>
+            <a class="btn btn--ghost" href="#place">Как найти</a>
+          </p>
+        </div>
+        <figure class="resp-hero__art">
+          <img src="assets/cup.svg" alt="Чашка горячего кофе" width="320" height="320">
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section__title">Что у нас есть</h2>
+        <div class="features">
+          <article class="feature">
+            <h2>Своя обжарка</h2>
+            <p>Барабанный ростер на 5 кг, профиль под каждый сорт, обжарка по вторникам.</p>
+          </article>
+          <article class="feature">
+            <h2>Зал на 30 мест</h2>
+            <p>Розетки у каждого стола, тихий зал для работы и большие окна.</p>
+          </article>
+          <article class="feature">
+            <h2>Школа бариста</h2>
+            <p>Группы до четырёх человек: эспрессо, альтернатива, латте-арт.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="week" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Меню недели</h2>
+        <div class="week">
+          <article class="week-card">
+            <h3>Фильтр Иргачеффе</h3>
+            <p>Эфиопия, светлая обжарка. Жасмин, персик, чёрный чай.</p>
+            <p class="price">240 ₽ / 300 мл</p>
+          </article>
+          <article class="week-card">
+            <h3>Капучино</h3>
+            <p>Эспрессо Уила и молоко 3,2%. Плотная пена, без сахара по умолчанию.</p>
+            <p class="price">220 ₽ / 250 мл</p>
+          </article>
+          <article class="week-card">
+            <h3>Раф лавандовый</h3>
+            <p>Сливки, ваниль и лавандовый сироп собственного приготовления.</p>
+            <p class="price">290 ₽ / 300 мл</p>
+          </article>
+          <article class="week-card">
+            <h3>Чизкейк</h3>
+            <p>Классический нью-йорк на песочной основе, печём каждое утро.</p>
+            <p class="price">260 ₽ / 120 г</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="place" class="section">
+      <div class="container">
+        <h2 class="section__title">Как нас найти</h2>
+        <div class="place">
+          <div class="place__card">
+            <h3>Адрес</h3>
+            <address>
+              ул. Обжарочная, 7<br>
+              <a href="tel:+79000000000">+7&nbsp;900&nbsp;000&#8209;00&#8209;00</a><br>
+              <a href="mailto:hello@zerno.example">hello@zerno.example</a>
+            </address>
+            <p class="muted">Пять минут от метро, вход со двора.</p>
+          </div>
+          <div class="place__card">
+            <h3>Часы работы</h3>
+            <table class="hours">
+              <caption class="sr-only">Часы работы кофейни</caption>
+              <thead>
+                <tr><th scope="col">Дни</th><th scope="col">Время</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Пн–Пт</td><td>8:00–22:00</td></tr>
+                <tr><td>Сб–Вс</td><td>10:00–23:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><small>© 2026 Кофейня «Зерно». Учебный проект.</small></p>
+      <nav aria-label="Этапы работы">
+        <ul class="site-footer__links">
+          <li><a href="02-semantic.html">Каркас</a></li>
+          <li><a href="03-styled.html">Стили</a></li>
+          <li><a href="04-menu.html">Grid</a></li>
+          <li><a href="05-responsive.html" aria-current="page">Адаптив</a></li>
+          <li><a href="06-3d.html">3D</a></li>
+          <li><a href="index.html">Итог</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <p class="bp" aria-hidden="true"></p>
+</body>
+</html>

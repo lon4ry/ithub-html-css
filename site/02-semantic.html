@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- Задание 2. Семантический каркас главной страницы кофейни «Зерно». CSS не используется. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зерно — кофейня и обжарочная (каркас)</title>
+  <meta name="description" content="Кофейня-обжарочная «Зерно»: меню, обжарка, отзывы, бронирование столика.">
+</head>
+<body>
+
+  <!-- header: шапка сайта, общая для всех страниц — логотип и главная навигация -->
+  <header>
+    <a href="02-semantic.html" aria-label="Зерно — на главную">
+      <img src="assets/logo.svg" alt="Логотип кофейни «Зерно»" width="48" height="48">
+    </a>
+    <!-- nav: блок основной навигации; ссылки оформлены списком, так как это перечень разделов -->
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#roasting">Обжарка</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#visit">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- main: уникальное содержимое страницы; на странице только один main -->
+  <main>
+
+    <!-- section с заголовком h1: первый экран, главный заголовок страницы -->
+    <section aria-labelledby="hero-title">
+      <h1 id="hero-title">Зерно — кофейня и обжарочная</h1>
+      <p>Обжариваем зерно каждую неделю и варим из него кофе здесь же, в зале.</p>
+      <p><a href="#visit">Забронировать столик</a></p>
+    </section>
+
+    <!-- section: тематический раздел «О нас» со своим заголовком h2 -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">О нас</h2>
+      <p>Мы открылись в 2021 году как небольшая обжарочная. Сегодня у нас зал на 30 мест, своя обжарка и школа бариста.</p>
+      <!-- figure + figcaption: иллюстрация с подписью, связанной с изображением -->
+      <figure>
+        <img src="assets/beans.svg" alt="Два обжаренных кофейных зерна" width="120" height="120">
+        <figcaption>Зерно обжариваем партиями по 5 кг.</figcaption>
+      </figure>
+      <!-- dl: список «термин — значение» для ключевых цифр -->
+      <dl>
+        <dt>Сортов в наличии</dt><dd>12</dd>
+        <dt>Обжарка</dt><dd>каждый вторник</dd>
+        <dt>Мест в зале</dt><dd>30</dd>
+      </dl>
+    </section>
+
+    <!-- section «Меню»: каждая позиция — article, так как карточка самостоятельна и понятна вне страницы -->
+    <section id="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title">Меню</h2>
+      <article>
+        <h3>Эспрессо</h3>
+        <p>Плотный, с нотами шоколада. 30 мл.</p>
+        <!-- data: машиночитаемое значение цены рядом с текстом для человека -->
+        <p>Цена: <data value="150">150 ₽</data></p>
+      </article>
+      <article>
+        <h3>Капучино</h3>
+        <p>Эспрессо и молоко с плотной пеной. 250 мл.</p>
+        <p>Цена: <data value="220">220 ₽</data></p>
+      </article>
+      <article>
+        <h3>Раф лавандовый</h3>
+        <p>Сливки, ваниль, лавандовый сироп. 300 мл.</p>
+        <p>Цена: <data value="290">290 ₽</data></p>
+      </article>
+      <article>
+        <h3>Фильтр-кофе</h3>
+        <p>Эфиопия Иргачеффе, светлая обжарка. 300 мл.</p>
+        <p>Цена: <data value="240">240 ₽</data></p>
+      </article>
+      <article>
+        <h3>Чай улун</h3>
+        <p>Молочный улун, заваривается при вас. 400 мл.</p>
+        <p>Цена: <data value="200">200 ₽</data></p>
+      </article>
+      <article>
+        <h3>Чизкейк</h3>
+        <p>Классический нью-йорк, собственная выпечка.</p>
+        <p>Цена: <data value="260">260 ₽</data></p>
+      </article>
+    </section>
+
+    <!-- section «Обжарка»: шаги процесса; ol — порядок шагов важен -->
+    <section id="roasting" aria-labelledby="roasting-title">
+      <h2 id="roasting-title">Как мы обжариваем</h2>
+      <ol>
+        <li><strong>Отбор.</strong> Пробуем образцы зелёного зерна и выбираем лоты.</li>
+        <li><strong>Профиль.</strong> Подбираем температуру и время под каждый сорт.</li>
+        <li><strong>Обжарка.</strong> Жарим партиями по 5 кг на барабанном ростере.</li>
+        <li><strong>Отдых.</strong> Зерно отдыхает 5 дней, после этого идёт в работу.</li>
+      </ol>
+    </section>
+
+    <!-- section «Отзывы»: каждый отзыв — article; цитата — blockquote, автор — footer внутри article -->
+    <section id="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Отзывы гостей</h2>
+      <article>
+        <blockquote>
+          <p>Лучший фильтр-кофе в районе, бариста всегда подскажет зерно.</p>
+        </blockquote>
+        <footer>Анна, <time datetime="2026-09-14">14 сентября 2026</time></footer>
+      </article>
+      <article>
+        <blockquote>
+          <p>Хожу работать с ноутбуком: тихо, розетки у каждого стола.</p>
+        </blockquote>
+        <footer>Илья, <time datetime="2026-10-02">2 октября 2026</time></footer>
+      </article>
+    </section>
+
+    <!-- section «Контакты»: адрес в address, часы работы в таблице, форма бронирования -->
+    <section id="visit" aria-labelledby="visit-title">
+      <h2 id="visit-title">Как нас найти</h2>
+      <!-- address: контактная информация владельца страницы -->
+      <address>
+        ул. Обжарочная, 7<br>
+        <a href="tel:+79000000000">+7&nbsp;900&nbsp;000&#8209;00&#8209;00</a><br>
+        <a href="mailto:hello@zerno.example">hello@zerno.example</a>
+      </address>
+      <!-- table: часы работы — табличные данные (день — время) -->
+      <table>
+        <caption>Часы работы</caption>
+        <thead>
+          <tr><th scope="col">Дни</th><th scope="col">Время</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Пн–Пт</td><td><time datetime="08:00">8:00</time>–<time datetime="22:00">22:00</time></td></tr>
+          <tr><td>Сб–Вс</td><td><time datetime="10:00">10:00</time>–<time datetime="23:00">23:00</time></td></tr>
+        </tbody>
+      </table>
+
+      <!-- form + fieldset/legend + label: доступная форма, каждое поле подписано -->
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Бронирование столика</legend>
+          <p><label for="name">Имя</label><br><input id="name" name="name" type="text" required autocomplete="name"></p>
+          <p><label for="phone">Телефон</label><br><input id="phone" name="phone" type="tel" required autocomplete="tel"></p>
+          <p><label for="date">Дата</label><br><input id="date" name="date" type="date" required></p>
+          <p><label for="guests">Гостей</label><br><input id="guests" name="guests" type="number" min="1" max="8" value="2"></p>
+          <p><button type="submit">Забронировать</button></p>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- aside: дополнительная информация, не связанная напрямую с основным потоком -->
+    <aside aria-label="Акция">
+      <p><strong>Каждый понедельник</strong> — второй фильтр-кофе за полцены.</p>
+    </aside>
+  </main>
+
+  <!-- footer: подвал сайта — копирайт и вторичная навигация -->
+  <footer>
+    <nav aria-label="Дополнительная навигация">
+      <ul>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#visit">Контакты</a></li>
+      </ul>
+    </nav>
+    <p><small>© <time datetime="2026">2026</time> Кофейня «Зерно». Учебный проект.</small></p>
+  </footer>
+
+</body>
+</html>

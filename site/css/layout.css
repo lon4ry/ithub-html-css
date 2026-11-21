@@ -1,0 +1,145 @@
+/* Задание 4. Grid строит каркас страницы и сетку каталога,
+   Flexbox — шапку, тулбар, карточку товара и пару «цена — кнопка». */
+
+.catalog-head { padding-block: clamp(2rem, 5vw, 3.5rem) 0; }
+.catalog-head h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 0.5rem; }
+.catalog-head p { max-width: 58ch; color: var(--ink-soft); }
+
+.crumbs { margin-bottom: 1.2rem; font-size: 0.85rem; }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; list-style: none; }
+.crumbs li + li::before { content: "/"; margin-right: 0.4rem; color: var(--ink-soft); }
+.crumbs a { color: var(--ink-soft); text-decoration: none; }
+.crumbs a:hover { color: var(--brand); }
+
+/* Grid: две колонки — фильтры и каталог */
+.catalog {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(1.5rem, 4vw, 2.5rem) 0;
+}
+
+/* Flex-колонка фильтров */
+.filters { position: sticky; top: 6rem; }
+.filters h2 {
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.filters ul { display: flex; flex-direction: column; gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.chip span { font-size: 0.78rem; opacity: 0.7; }
+.chip:hover { border-color: var(--brand); color: var(--brand-dark); }
+.chip[aria-pressed="true"] { border-color: var(--dark); background: var(--dark); color: #fffaf3; }
+
+.hint {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* Flexbox: заголовок и сортировка на одной строке с переносом */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.toolbar h2 { margin: 0; font-size: 1.3rem; }
+.toolbar h2 small { color: var(--ink-soft); font-family: var(--font-body); font-size: 0.85rem; font-weight: 400; }
+.sort { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--ink-soft); font-size: 0.9rem; }
+.sort select {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+/* Grid: адаптивная сетка товаров без media-запросов */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product { display: flex; }
+.product__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: clip;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.product__card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.product__media { display: grid; place-items: center; aspect-ratio: 4 / 3; margin: 0; background: var(--media, #4c6b52); }
+.product__media img { width: 84px; height: 84px; }
+.product:nth-child(4n + 1) .product__media { --media: #4c6b52; }
+.product:nth-child(4n + 2) .product__media { --media: #8a471d; }
+.product:nth-child(4n + 3) .product__media { --media: #5b3c2a; }
+.product:nth-child(4n + 4) .product__media { --media: #6f6b3f; }
+
+/* Flex-колонка внутри карточки: цена прижата к низу через margin-top: auto */
+.product__body { display: flex; flex: 1; flex-direction: column; padding: 1rem; }
+.product__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.product__body h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+.product__note { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.9rem; }
+.product__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+.product__price { margin: 0; font-weight: 700; white-space: nowrap; }
+.product__price small { color: var(--ink-soft); font-size: 0.78rem; font-weight: 400; }
+.product__bottom .btn { flex-shrink: 0; padding: 0.5rem 0.8rem; font-size: 0.8rem; white-space: nowrap; }
+
+@media (max-width: 800px) {
+  .catalog { grid-template-columns: 1fr; }
+  .filters { position: static; }
+  .filters ul { flex-direction: row; flex-wrap: wrap; }
+  .chip { width: auto; }
+  .hint { display: none; }
+}
